@@ -34,7 +34,7 @@ const CountryContainer = () => {
 
     return (
         <>
-            <h3>Total Pop:{sumPop}</h3>
+            <h3>World Total Population:{" "}{sumPop}</h3>
             <CountryList countries={countries} onCountryClick={onCountryClick} />
         </>
     )
