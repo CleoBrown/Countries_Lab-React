@@ -7,14 +7,14 @@ import CountryDetail from '../components/CountryDetail';
 const CountryContainer = () => {
 
     const [countries, setCountries] = useState([]);
-    const [selectedCountry, setSelectedCountry] = useState();
+    const [selectedCountry, setSelectedCountry] = useState('');
 
 
     useEffect(() => {
         getCountries();
     }, [])
 
-    const onCountryClick = function (country) {
+    const onCountryClick = (country) => {
         setSelectedCountry(country);
     }
 
@@ -28,15 +28,18 @@ const CountryContainer = () => {
         return total + country.population
     }, 0)
 
+    // const selectCountry = countries.find(country => country.name.common === selectedCountry)
+
 
 
 
 
     return (
-        <>
+        <div className="main">
             <h3>World Total Population:{" "}{sumPop}</h3>
             <CountryList countries={countries} onCountryClick={onCountryClick} />
-        </>
+            {selectedCountry ? <CountryDetail selectedCountry={selectedCountry} /> : null}
+        </div>
     )
 }
 
